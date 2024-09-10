@@ -1,0 +1,13 @@
+.airbnb-graphics {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 5px;
+	overflow: hidden;
+	color: rgba(255, 255, 255, 1);
+}
+.airbnb-right-item-wrapper {
+	display: grid;
+	grid-template-rows: 30px auto;
+	background-color: rgba(33, 33, 43, 1);
+	overflow: hidden;
+}

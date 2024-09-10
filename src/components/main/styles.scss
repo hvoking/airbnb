@@ -1,0 +1,48 @@
+.wrapper {
+  height: calc(var(--vh, 1vh) * 100);
+  max-height: calc(var(--vh, 1vh) * 100);
+  display: grid;
+  grid-template-rows: 60px auto;
+}
+.airbnb-wrapper {
+  background-color: rgba(23, 23, 32, 1);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 13fr 8fr;
+  grid-template-rows: 8fr 3fr;
+  grid-template-areas: 
+    "ls ma"
+    "ls gr";
+  padding: 5px;
+  grid-gap: 5px;
+}
+
+.airbnb-maps {
+  grid-area: ma;
+}
+.airbnb-graphics {
+  grid-area: gr;
+}
+.airbnb-listing {
+  grid-area: ls;
+}
+// mobile-style
+@media screen and (max-width: 1000px) {
+  .airbnb-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60vh 60vh 80vh;
+    overflow-y: scroll;
+    grid-template-areas:
+      "ma"
+      "gr"
+      "ls";
+  }
+  .airbnb-graphics {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .airbnb-images-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}

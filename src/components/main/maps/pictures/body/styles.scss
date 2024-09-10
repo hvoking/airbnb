@@ -1,0 +1,10 @@
+.airbnb-pictures-body {
+  overflow: hidden;
+  height: 250px;
+}
+.pictures-item {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+}
