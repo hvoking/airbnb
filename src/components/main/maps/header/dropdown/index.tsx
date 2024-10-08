@@ -4,10 +4,10 @@ import { FiltersDropdown } from './type';
 import './styles.scss';
 
 // Context imports
-import { useIsoPolygonApi } from '../../../../context/api/isoPolygon';
+import { useIsochroneApi } from '../../../../context/api/isochrone';
 
 export const Dropdown = () => {
-	const { routingProfile, setRoutingProfile, contoursMinutes, setContoursMinutes } = useIsoPolygonApi();
+	const { routingProfile, setRoutingProfile, contoursMinutes, setContoursMinutes } = useIsochroneApi();
 
 	const transportListOfValues: any = {
 		"walking": process.env.PUBLIC_URL + "/static/maps/header/walking-active.svg",

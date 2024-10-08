@@ -22,7 +22,7 @@ export const ImagesHeader = ({ propertyInfo, setActivePropertyInfo }: any) => {
 			<div>{siFormat(Math.round(propertyInfo.price))} £</div>
 			<img
 				className="ads-cancel-search-cross"
-				src={process.env.PUBLIC_URL + "/static/logos/cancel_search.svg"} 
+				src={process.env.PUBLIC_URL + "/static/icons/cancel.svg"} 
 				alt="search-icon"
 				onClick={onClick}
 			/>

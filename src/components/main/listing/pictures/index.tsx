@@ -44,7 +44,7 @@ export const Pictures = ({ item, setValidImages, setRejectedIds }: any) => {
 			</a>
 			 <img
 				className="airbnb-cancel-cross"
-				src={process.env.PUBLIC_URL + "/static/logos/cancel_search.svg"} 
+				src={process.env.PUBLIC_URL + "/static/icons/cancel.svg"} 
 				alt="cancel-icon"
 				onClick={(e: any) => rejectId(e, item)}
 			/>

@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext, createContext } from 'react';
 
 // Context imports
-import { useIsoPolygonApi } from '../isoPolygon';
+import { useIsochroneApi } from '../isochrone';
 
 const HexagonsApiContext: React.Context<any> = createContext(null)
 
@@ -13,7 +13,7 @@ export const useHexagonsApi = () => {
 }
 
 export const HexagonsApiProvider = ({children}: any) => {
-	const { isoPolygonData } = useIsoPolygonApi();
+	const { isochroneData } = useIsochroneApi();
 
 	const [ hexagonsData, setHexagonsData ] = useState<any>(null);
 
@@ -28,8 +28,8 @@ export const HexagonsApiProvider = ({children}: any) => {
 			const receivedData = await res.json();
 			setHexagonsData(receivedData[0]);
 		}
-		isoPolygonData && fetchData();
-	}, [ isoPolygonData ]);
+		isochroneData && fetchData();
+	}, [ isochroneData ]);
 
 	return (
 		<HexagonsApiContext.Provider value={{ hexagonsData }}>
