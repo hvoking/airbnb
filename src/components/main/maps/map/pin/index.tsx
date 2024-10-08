@@ -11,29 +11,22 @@ import { useGeo } from '../../../../context/filters/geo';
 import { Marker } from 'react-map-gl';
 
 export const Pin = () => {
-	const { marker, setMarker, setPlaceCoordinates } = useGeo();
-
-	const onMarkerDrag = useCallback((event: any) => {
-		setMarker({
-			longitude: event.lngLat.lng,
-			latitude: event.lngLat.lat
-		});
-	}, []);
+	const { viewport, setViewport } = useGeo();
 
 	const onMarkerDragEnd = useCallback((event: any) => {
-		setPlaceCoordinates({
+		setViewport((prev: any) => ({
+			...prev,
 			longitude: event.lngLat.lng,
 			latitude: event.lngLat.lat
-		});
+		}));
 	}, []);
 	  
 	return (
 		<Marker
-	      longitude={marker.longitude}
-	      latitude={marker.latitude}
+	      longitude={viewport.longitude}
+	      latitude={viewport.latitude}
 	      anchor="bottom"
 	      draggable
-	      onDrag={onMarkerDrag}
 	      onDragEnd={onMarkerDragEnd}
 	    >
 	      <img 

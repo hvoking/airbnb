@@ -17,31 +17,19 @@ export const GeoProvider = ({children}: any) => {
 	const [ placeId, setPlaceId ] = useState<any>(null);
 	
 	const [ viewport, setViewport ] = useState(Locations.london);
-	const [ placeCoordinates, setPlaceCoordinates ] = useState({
-		latitude: viewport.latitude, 
-		longitude: viewport.longitude 
-	});
 
 	const [ geocodingLongitude, setGeocodingLongitude ] = useState(viewport.longitude);
 	const [ geocodingLatitude, setGeocodingLatitude ] = useState(viewport.latitude);
 
-	const [ marker, setMarker ] = useState({ 
-		latitude: viewport.latitude, 
-		longitude: viewport.longitude 
-	});
-
 	useEffect(() => {
-		setViewport({...viewport, ...placeCoordinates});
-		placeCoordinates && setGeocodingLatitude(placeCoordinates.latitude) 
-		placeCoordinates && setGeocodingLongitude(placeCoordinates.longitude)
-	}, [ placeCoordinates ])
+		setGeocodingLatitude(viewport.latitude) 
+		setGeocodingLongitude(viewport.longitude)
+	}, [ viewport ])
 
 	return (
 		<GeoContext.Provider value={{
 			cityId, setCityId, 
 			placeId, setPlaceId, 
-			marker, setMarker,
-			placeCoordinates, setPlaceCoordinates,
 			viewport, setViewport,
 			geocodingLongitude, setGeocodingLongitude,
 			geocodingLatitude, setGeocodingLatitude,

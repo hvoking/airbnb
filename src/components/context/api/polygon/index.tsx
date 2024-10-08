@@ -14,14 +14,14 @@ export const usePolygonApi = () => {
 }
 
 export const PolygonApiProvider = ({children}: any) => {
-	const { placeCoordinates } = useGeo();
+	const { viewport } = useGeo();
 	const { isochroneData } = useIsochroneApi();
 
 	const [ polygonData, setPolygonData ] = useState<any>(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const { longitude, latitude } = placeCoordinates;
+			const { longitude, latitude } = viewport;
 			const polygon = isochroneData.features[0].geometry;
 
 			const res = await fetch(`${process.env.REACT_APP_API_URL}/polygon_api`, {

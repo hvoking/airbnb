@@ -5,7 +5,7 @@ import './styles.scss';
 export const Header = ({ nearest, setNearest }: any) => {
 	return (
 		<div className="samples-header">
-			<div className="sidebar-sub-title">Listings</div>
+			<div className="sidebar-sub-title" style={{paddingLeft: "20px"}}>Listings</div>
 			<div></div>
 			<Nearest 
 				nearest={nearest}

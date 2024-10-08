@@ -19,7 +19,7 @@ export const SvgMap = () => {
 
 	const { polygonData } = usePolygonApi();
 	const { innerWidth, innerHeight } = useSvgMapSizes();
-	const { placeCoordinates, setPlaceCoordinates } = useGeo();
+	const { viewport, setViewport } = useGeo();
 
 	if (!polygonData || !polygonData[0]) return (<></>)
 
@@ -35,10 +35,10 @@ export const SvgMap = () => {
 		const rect = svgContainerRef.current.getBoundingClientRect();
 		const adjustedCoordinates: any = [e.clientX - rect.left, e.clientY - rect.top];
 	    const [lng, lat]: any = projection.invert(adjustedCoordinates);
-	    setPlaceCoordinates({ latitude: lat, longitude: lng });
+	    setViewport((prev: any) => ({ ...prev, latitude: lat, longitude: lng }));
 	}
 
-	const pinCoordinates: any = projection([placeCoordinates.longitude, placeCoordinates.latitude]);
+	const pinCoordinates: any = projection([viewport.longitude, viewport.latitude]);
 
 	return (
 		<div className="airbnb-svgmap-wrapper">
